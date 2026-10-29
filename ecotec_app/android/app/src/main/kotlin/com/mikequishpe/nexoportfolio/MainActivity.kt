@@ -1,4 +1,4 @@
-package com.example.ecotec_app
+package com.mikequishpe.nexoportfolio
 
 import io.flutter.embedding.android.FlutterActivity
 
