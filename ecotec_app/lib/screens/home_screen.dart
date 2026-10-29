@@ -60,12 +60,12 @@ class HomeScreen extends StatelessWidget {
           width: double.infinity,
           padding: const EdgeInsets.all(22),
           decoration: BoxDecoration(
-            color: const Color(0xFF20242B),
+            color: const Color(0xFF101827),
             borderRadius: BorderRadius.circular(22),
             gradient: const LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [Color(0xFF20242B), Color(0xFF343D48)],
+              colors: [Color(0xFF101827), Color(0xFF1B2A3F)],
             ),
           ),
           child: LayoutBuilder(
@@ -130,7 +130,7 @@ class HomeScreen extends StatelessWidget {
                     alignment: Alignment.center,
                     semanticLabel: 'Fotografía de Mike Quishpe Alban',
                     errorBuilder: (context, error, stackTrace) => const ColoredBox(
-                      color: Color(0xFF343D48),
+                      color: Color(0xFF1B2A3F),
                       child: Icon(Icons.person, color: Colors.white, size: 80),
                     ),
                   ),
