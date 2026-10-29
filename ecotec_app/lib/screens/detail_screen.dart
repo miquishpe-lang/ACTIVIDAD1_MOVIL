@@ -1,5 +1,7 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import '../models/project.dart';
+import '../repositories/local_repository.dart';
 
 class DetailScreen extends StatefulWidget {
   final Project project;
@@ -14,6 +16,45 @@ class _DetailScreenState extends State<DetailScreen> {
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _messageController = TextEditingController();
+  final _repository = LocalRepository();
+  bool _restoringDraft = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _restoreDraft();
+    _nameController.addListener(_persistDraft);
+    _emailController.addListener(_persistDraft);
+    _messageController.addListener(_persistDraft);
+  }
+
+  Future<void> _restoreDraft() async {
+    try {
+      final draft = await _repository.readContactDraft();
+      if (!mounted || draft.isEmpty) return;
+      final values = jsonDecode(draft) as Map<String, dynamic>;
+      _nameController.text = values['name'] as String? ?? '';
+      _emailController.text = values['email'] as String? ?? '';
+      _messageController.text = values['message'] as String? ?? '';
+    } catch (error) {
+      debugPrint('No se pudo recuperar el borrador: $error');
+    } finally {
+      _restoringDraft = false;
+    }
+  }
+
+  Future<void> _persistDraft() async {
+    if (_restoringDraft) return;
+    try {
+      await _repository.saveContactDraft(jsonEncode({
+        'name': _nameController.text,
+        'email': _emailController.text,
+        'message': _messageController.text,
+      }));
+    } catch (error) {
+      debugPrint('No se pudo guardar el borrador: $error');
+    }
+  }
 
   @override
   void dispose() {
@@ -26,7 +67,7 @@ class _DetailScreenState extends State<DetailScreen> {
   void _sendMessage() {
     if (!_formKey.currentState!.validate()) return;
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Gracias, ${_nameController.text.trim()}. Formulario validado.')),
+      SnackBar(content: Text('Gracias, ${_nameController.text.trim()}. Formulario validado localmente.')),
     );
   }
 

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/project.dart';
 import '../widgets/project_card.dart';
 import 'detail_screen.dart';
+import 'services_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -49,9 +50,9 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Row(children: [
-          CircleAvatar(backgroundColor: Color(0xFFFF8C00), radius: 17,
+          CircleAvatar(backgroundColor: Color(0xFF20D9D2), radius: 17,
             child: Text('MQ', style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold))),
-          SizedBox(width: 10), Text('Portafolio personal'),
+          SizedBox(width: 10), Text('Nexo Portfolio'),
         ]),
       ),
       body: ListView(padding: const EdgeInsets.all(18), children: [
@@ -76,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                   const Text(
                     'PORTAFOLIO PERSONAL',
                     style: TextStyle(
-                      color: Color(0xFFFFB347), fontSize: 11,
+                      color: Color(0xFF20D9D2), fontSize: 11,
                       fontWeight: FontWeight.bold, letterSpacing: 1.8,
                     ),
                   ),
@@ -84,7 +85,7 @@ class HomeScreen extends StatelessWidget {
                   const Text.rich(
                     TextSpan(children: [
                       TextSpan(text: 'Hola, soy\n', style: TextStyle(color: Colors.white)),
-                      TextSpan(text: 'Mike Quishpe Alban', style: TextStyle(color: Color(0xFFFFA126))),
+                      TextSpan(text: 'Mike Quishpe Alban', style: TextStyle(color: Color(0xFF20D9D2))),
                     ]),
                     style: TextStyle(fontSize: 28, height: 1.15, fontWeight: FontWeight.bold),
                   ),
@@ -101,7 +102,7 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(height: 18),
                   FilledButton.icon(
                     style: FilledButton.styleFrom(
-                      backgroundColor: const Color(0xFFFF8C00),
+                      backgroundColor: const Color(0xFF20D9D2),
                       foregroundColor: Colors.white,
                     ),
                     onPressed: () => _openDetails(context, projects.first),
@@ -117,9 +118,9 @@ class HomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(color: const Color(0xFF9BFF19), width: 3),
+                  border: Border.all(color: const Color(0xFFC7F36B), width: 3),
                   boxShadow: const [
-                    BoxShadow(color: Color(0x553CFF00), blurRadius: 24, spreadRadius: 1),
+                    BoxShadow(color: Color(0x3320D9D2), blurRadius: 24, spreadRadius: 1),
                   ],
                 ),
                 child: ClipOval(
@@ -165,6 +166,22 @@ class HomeScreen extends StatelessWidget {
             decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(14), border: Border.all(color: const Color(0xFFE3E6EA))),
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Row(children: [Icon(skills[index].$2, color: colors.primary, size: 21), const SizedBox(width: 8), Expanded(child: Text(skills[index].$1, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 12))) ]),
+          ),
+        ),
+        const SizedBox(height: 22),
+        Card(
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(children: [
+              Container(width: 46, height: 46, decoration: BoxDecoration(color: const Color(0xFF20D9D2).withOpacity(.16), borderRadius: BorderRadius.circular(14)), child: const Icon(Icons.devices_other_rounded, color: Color(0xFF101827))),
+              const SizedBox(width: 12),
+              const Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Text('Servicios del dispositivo', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                SizedBox(height: 4),
+                Text('Cámara, galería, recorte y notificaciones locales', style: TextStyle(fontSize: 12, color: Color(0xFF5D6674))),
+              ])),
+              IconButton(tooltip: 'Abrir servicios nativos', onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ServicesScreen())), icon: const Icon(Icons.arrow_forward_rounded)),
+            ]),
           ),
         ),
         const SizedBox(height: 26),
