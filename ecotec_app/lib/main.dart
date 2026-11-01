@@ -11,7 +11,6 @@ void main() {
   runApp(const PortfolioApp());
 }
 
->>>>>>> origin/main
 class PortfolioApp extends StatefulWidget {
   const PortfolioApp({super.key});
   @override
