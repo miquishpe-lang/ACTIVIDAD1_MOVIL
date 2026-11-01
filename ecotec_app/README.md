@@ -1,4 +1,4 @@
-# Nexo Portfolio — Actividad Integradora 2
+# Actividad Integradora 2
 
 **Base de trabajo:** este proyecto reutiliza y mejora la aplicación Flutter de la Actividad Integradora 1 (portafolio móvil). Se conservan la presentación, las habilidades, las tarjetas de proyectos, la navegación al detalle y el formulario, y se agregan servicios nativos desacoplados.
 
@@ -53,7 +53,7 @@ flutter run
 - iOS: textos de propósito para cámara, biblioteca de fotos y adición a biblioteca.
 - La selección de fotos usa el selector del sistema cuando está disponible; los permisos varían según la versión del SO.
 
-## Git y entrega
+## Git 
 La rama estable propuesta es `main`; el trabajo de integración está en `develop` y las funciones pueden separarse en `feature/connectivity`, `feature/media-permissions` y `feature/local-notifications`. Los commits locales y las ramas deben publicarse en una cuenta GitHub/GitLab del estudiante para disponer de una URL pública verificable. No se afirma que este paquete se haya publicado automáticamente.
 
 ## Limitaciones a verificar en el entorno de entrega
