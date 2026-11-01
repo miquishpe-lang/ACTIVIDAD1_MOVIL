@@ -6,7 +6,6 @@ import 'services/notification_service.dart';
 import 'repositories/local_repository.dart';
 import 'widgets/offline_banner.dart';
 
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const PortfolioApp());
