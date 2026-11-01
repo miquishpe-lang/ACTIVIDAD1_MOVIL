@@ -39,6 +39,7 @@ dependencies:
   flutter:
     sdk: flutter
   smooth_avatar: ^1.0.3
+  camera: ^0.12.2
 
 dev_dependencies:
   flutter_lints: ^6.0.0
