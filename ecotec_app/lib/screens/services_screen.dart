@@ -4,10 +4,8 @@ import 'package:image_picker/image_picker.dart';
 import '../repositories/local_repository.dart';
 import '../services/image_service.dart';
 import '../services/notification_service.dart';
-<<<<<<< HEAD
 import 'package:permission_handler/permission_handler.dart';
-=======
->>>>>>> origin/main
+
 
 class ServicesScreen extends StatefulWidget {
   const ServicesScreen({super.key});
